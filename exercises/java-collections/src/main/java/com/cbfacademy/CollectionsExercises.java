@@ -12,7 +12,19 @@ public class CollectionsExercises {
         //  - add 4 as the 3rd element of the list
         //  - invoke the method element() on the list and print the result on the screen
         //  - return the list
-        throw new RuntimeException("Not implemented");
+        LinkedList<Integer> newLinkedList = new LinkedList<Integer>();
+        newLinkedList.addFirst(4);
+        Integer[] newList = {5,6,8,2,9};
+
+        Collections.addAll(newLinkedList, newList);
+
+
+        newLinkedList.add(2,4);
+
+       // newLinkedList.addAll(new LinkedList<Integer>(5,6,8,2,9);
+        newLinkedList.addLast(2);
+        System.out.println(newLinkedList.element());
+        return newLinkedList;
     }
 
     public Stack<Integer> useStack() {
@@ -28,13 +40,30 @@ public class CollectionsExercises {
 
     public ArrayDeque<Integer> useArrayDeque() {
         // TODO: create an empty arrayDeque
-        //  - add 5, 6, 8, 9 to the the stack
-        //  - print the first element of the queue on the screen
-        //  - print the last element of the queue on the screen
-        //  - invoke the method poll() on the queue and print the result on the screen
-        //  - invoke the element() method on the queue and print the result on the screen
         //  - return the queue
-        throw new RuntimeException("Not implemented");
+
+        ArrayDeque<Integer> newArrayDeque = new ArrayDeque<>();
+               //  - add 5, 6, 8, 9 to the the stack
+
+        newArrayDeque.add(5);
+        newArrayDeque.add(6);
+        newArrayDeque.add(8);
+        newArrayDeque.add(9);
+
+        //  - print the first element of the queue on the screen
+        System.out.print(newArrayDeque.getFirst());   
+        //  - print the last element of the queue on the screen
+        System.out.print(newArrayDeque.getLast());
+
+        //  - invoke the method poll() on the queue and print the result on the screen
+
+        System.out.print(newArrayDeque.poll());                
+        //  - invoke the element() method on the queue and print the result on the screen
+
+        System.out.print(newArrayDeque.element());        
+
+        return newArrayDeque;
+
     }
 
     public HashMap<Integer, String> useHashMap() {
