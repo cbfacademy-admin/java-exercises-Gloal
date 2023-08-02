@@ -2,7 +2,12 @@ package com.cbfacademy;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class CollectionsAssignment {
 
@@ -13,11 +18,27 @@ public class CollectionsAssignment {
      *
      * @param list   - the list of integers
      * @param minValue the minimum value to retain
+     *  Your solution must traverse the list from last to first element
+     *    removing any values less than minValue.
      */
+    //Could have used the java.re
     public static void removeSmallInts(List<Integer> list, int minValue) {
-        // Your solution must traverse the list from last to first element
-        // removing any values less than minValue.
-    }
+        for(int i = list.size()-1; i>=0; i--){
+            if(list.get(i) < minValue){
+                list.remove(i);
+                }
+            }
+
+
+        //Method 2
+        ListIterator listIterator = list.listIterator(list.size());
+        while(listIterator.hasPrevious()){
+            listIterator.removeIf(listIterator<)
+        }
+
+
+        }
+
 
     /**
      * This method returns true if the provided collection contains any
@@ -28,7 +49,13 @@ public class CollectionsAssignment {
      */
     public static boolean containsDuplicates(Collection<Integer> integers) {
         // Your solution must not use any loops.
-        return false;
+
+        Set<Integer> notDuplicateSet = new HashSet<Integer>();
+        Collections.addAll(notDuplicateSet, integers);
+        if(notDuplicateSet.size() != integers.size()){
+            return true;
+        }else{
+            return false;}
     }
 
     /**
@@ -48,6 +75,12 @@ public class CollectionsAssignment {
      */
     public static ArrayList<Integer> inEither(Collection<Integer> ints1, Collection<Integer> ints2) {
         // This must be done with no loops.
+        SortedSet<Integer> newSet = new TreeSet<Integer>();
+        newSet.addAll(ints1);
+        newSet.addAll(ints2);
+
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        arrayList.addAll(newSet);
         return new ArrayList<Integer>();
     }
 
@@ -66,6 +99,8 @@ public class CollectionsAssignment {
      */
     public static ArrayList<Integer> inBoth(Collection<Integer> ints1, Collection<Integer> ints2) {
         // This must be done with no loops.
+
+        
         return new ArrayList<>();
     }
 

@@ -1,35 +1,56 @@
 package com.cbfacademy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.*;
-
 public class App {
-    
-    /**
-     * @param args
-     */
+   
     public static void main(String[] args) {
-        System.out.println("Hello World!");
 
-        // TODO - Implement this method such that
-        //  - it takes an array list of integers
-        //  - it returns the list in reverse order
-        ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 4, 7, 8, 11, 13, 17));
-        Integer [] numbersList = new Integer[numbers.size()];
-        numbersList = numbers.toArray(numbersList);
-        List<Integer> results = new ArrayList<Integer>();
-                            System.out.print(numbers.get(2));
-
-                                System.out.print(numbers.size());
-
-        for (int i=numbers.size()-1; i>=0; i-- ){
-            results.add(numbers.get(i));
-            System.out.print(numbers.get(i));
-
-        }
-
-        System.out.println( results);
+        System.out.println("Today is "+ matchDays(findToday())); 
     }
 
+
+    public static String matchDays(Integer i){
+        switch(i){
+            case 1: return "Monday";
+            case 2: return "Tuesday";
+            case 3: return "Wednesday";
+            case 4: return "Thursday";
+            case 5: return "Friday";
+            case 6: return "Saturday";
+            case 7: return "Sunday";
+            default: return "Invalid Input";
+        } 
+    }
+
+        
+    public static  Integer findToday(){
+            
+        int[] weekdays = {1,2,3,4,5,6,7};   
+        int whatIsToday = 0;         
+
+        for(int i : weekdays){
+            Integer today = i;
+            Integer yesterday;
+            Integer tomorrow ;
+            
+            if(i==1){
+                yesterday = 7; }
+            else{
+                yesterday = i-1;
+            }
+            
+            if(i==7){
+                tomorrow = 1;
+            }else{
+                tomorrow = i+1;
+            }
+
+            if((tomorrow != 3 && tomorrow != 4) 
+                && (yesterday!= 5 && yesterday!=6)
+                    && (today != 4 && today != 7 && today != 1)){
+                        whatIsToday =  today;
+                }
+        }
+    return whatIsToday;
+        }
 }
+
