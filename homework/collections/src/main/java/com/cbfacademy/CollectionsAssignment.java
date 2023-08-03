@@ -2,15 +2,15 @@ package com.cbfacademy;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
+import java.util.Set;
 import java.util.HashMap;
 
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class CollectionsAssignment {
 
@@ -54,7 +54,8 @@ public class CollectionsAssignment {
 
         HashSet<Integer> noDuplicateSet = new HashSet<Integer>();
        // Collections.addAll(noDuplicateSet, integers);
-       noDuplicateSet.addAll(integers);
+        noDuplicateSet.addAll(integers);
+
         if(noDuplicateSet.size() < integers.size()){
             return true;
         }else{
@@ -86,7 +87,7 @@ public class CollectionsAssignment {
 
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
         arrayList.addAll(newSet);
-        return new ArrayList<Integer>();
+        return  arrayList;
     }
 
 
@@ -106,9 +107,24 @@ public class CollectionsAssignment {
      */
     public static ArrayList<Integer> inBoth(Collection<Integer> ints1, Collection<Integer> ints2) {
         // This must be done with no loops.
+    
+        //First use a set so that only unique values from each collection is stored
+    Set<Integer> newSet1 = new HashSet<>();
+    newSet1.addAll(ints1);
 
+    Set<Integer> newSet2 = new HashSet<>();
+    newSet2.addAll(ints2);
 
-        return new ArrayList<>();
+    //retainAll method returns only the common values in two collections and stores the result in the first collection
+    newSet1.retainAll(newSet2);
+
+    ArrayList<Integer> newList = new ArrayList<Integer>();
+    newList.addAll(newSet1);
+    return newList;
+
+    //The althernative could be using the stream/filter contains method but I do not know how it works yet - will review soon
+    //return ints1.stream().filter(ints2::contains).collect(Collectors.toCollection(ArrayList::new));
+    
     }
 
     /**
