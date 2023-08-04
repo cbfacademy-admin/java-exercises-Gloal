@@ -6,6 +6,9 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
+import java.util.HashMap;
+
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -28,16 +31,15 @@ public class CollectionsAssignment {
                 list.remove(i);
                 }
             }
-
+        
 
         //Method 2
-        ListIterator listIterator = list.listIterator(list.size());
+  /*       ListIterator listIterator = list.listIterator(list.size());
         while(listIterator.hasPrevious()){
             listIterator.removeIf(listIterator<)
-        }
+        } */
+    }
 
-
-        }
 
 
     /**
@@ -50,13 +52,16 @@ public class CollectionsAssignment {
     public static boolean containsDuplicates(Collection<Integer> integers) {
         // Your solution must not use any loops.
 
-        Set<Integer> notDuplicateSet = new HashSet<Integer>();
-        Collections.addAll(notDuplicateSet, integers);
-        if(notDuplicateSet.size() != integers.size()){
+        HashSet<Integer> noDuplicateSet = new HashSet<Integer>();
+       // Collections.addAll(noDuplicateSet, integers);
+       noDuplicateSet.addAll(integers);
+        if(noDuplicateSet.size() < integers.size()){
             return true;
         }else{
             return false;}
     }
+
+
 
     /**
      * This method returns an ArrayList containing all elements that appear in
@@ -84,6 +89,8 @@ public class CollectionsAssignment {
         return new ArrayList<Integer>();
     }
 
+
+
     /**
      * This method returns an ArrayList containing all elements that appear in
      * both of the two collection arguments. There will be no duplicate values
@@ -100,7 +107,7 @@ public class CollectionsAssignment {
     public static ArrayList<Integer> inBoth(Collection<Integer> ints1, Collection<Integer> ints2) {
         // This must be done with no loops.
 
-        
+
         return new ArrayList<>();
     }
 
@@ -114,14 +121,33 @@ public class CollectionsAssignment {
      * @param list - a list of Strings
      * @return the most frequently occurring String
      */
-    public static String mostFrequent(List<String> list) {
         // You should solve this problem in two stages: First iterate through
         // the list to count occurrences of each String. Then iterate through
         // your counts to find the largest. You'll need a collection that allows
         // you to store a mapping from Strings to counts.
         // No nested loops or non-enhanced for-loops are allowed.
-        return "";
+        
+    public static String mostFrequent(List<String> list) {
+
+        Map<String, Integer> mostFrequentMap = new HashMap<String, Integer>();
+        Integer count = 1;
+        Integer maxicount = 0;
+        String mostCount = null;
+        for(String s: list){
+            if(mostFrequentMap.containsKey(s)){
+                mostFrequentMap.put(s, mostFrequentMap.get(s)+1);
+            }else{mostFrequentMap.put(s, count);}
+        }
+
+        for(String s: mostFrequentMap.keySet()){
+            if(mostFrequentMap.get(s)>maxicount){
+                maxicount = mostFrequentMap.get(s);
+                mostCount = s;}
+        }
+
+        return mostCount;
     }
+
 
     public static String getName() {
         return "Collections Assignment";
