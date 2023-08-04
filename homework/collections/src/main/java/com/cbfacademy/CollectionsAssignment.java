@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.HashMap;
-
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -29,15 +28,8 @@ public class CollectionsAssignment {
         for(int i = list.size()-1; i>=0; i--){
             if(list.get(i) < minValue){
                 list.remove(i);
-                }
             }
-        
-
-        //Method 2
-  /*       ListIterator listIterator = list.listIterator(list.size());
-        while(listIterator.hasPrevious()){
-            listIterator.removeIf(listIterator<)
-        } */
+        }
     }
 
 
@@ -59,7 +51,8 @@ public class CollectionsAssignment {
         if(noDuplicateSet.size() < integers.size()){
             return true;
         }else{
-            return false;}
+            return false;
+        }
     }
 
 
@@ -152,13 +145,16 @@ public class CollectionsAssignment {
         for(String s: list){
             if(mostFrequentMap.containsKey(s)){
                 mostFrequentMap.put(s, mostFrequentMap.get(s)+1);
-            }else{mostFrequentMap.put(s, count);}
+            }else{
+                mostFrequentMap.put(s, count);
+            }
         }
 
         for(String s: mostFrequentMap.keySet()){
             if(mostFrequentMap.get(s)>maxicount){
                 maxicount = mostFrequentMap.get(s);
-                mostCount = s;}
+                mostCount = s;
+            }
         }
 
         return mostCount;
