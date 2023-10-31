@@ -5,10 +5,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import org.powermock.reflect.exceptions.FieldNotFoundException;
-
-import it.larusba.neo4j.jdbc.impl.ListArray;
-
 /**
  * Hello world!
  *
