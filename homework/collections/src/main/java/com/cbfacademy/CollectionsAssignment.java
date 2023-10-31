@@ -32,7 +32,7 @@ public class CollectionsAssignment {
         }
     }
 
-
+git 
 
     /**
      * This method returns true if the provided collection contains any
